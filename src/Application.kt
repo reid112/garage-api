@@ -1,12 +1,14 @@
 package ca.rjreid
 
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
-import io.ktor.routing.*
-import io.ktor.http.*
-import io.ktor.gson.*
-import io.ktor.features.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.gson.gson
+import io.ktor.response.respond
+import io.ktor.routing.get
+import io.ktor.routing.post
+import io.ktor.routing.routing
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -20,19 +22,24 @@ fun Application.module(testing: Boolean = false) {
     routing {
         //TODO: Do something with this route
         get("/") {
-            call.respond(Response(ResponseStatus.SUCCESS))
+            call.respond("Welcome")
         }
 
+        //TODO: Implement this correctly
         get("/api/door/status") {
-
+            call.respond(DoorStatusResponse(ResponseStatus.SUCCESS, DoorStatus.CLOSED))
         }
 
+        //TODO: Implement this correctly
         post("/api/door/open") {
-
+            // time how long the door takes to open and use a coroutine to delay response until door is open
+            call.respond(DoorStatusResponse(ResponseStatus.SUCCESS, DoorStatus.OPEN))
         }
 
+        //TODO: Implement this correctly
         post("/api/door/close") {
-
+            // time how long the door takes to close and use a coroutine to delay response until door is closed
+            call.respond(DoorStatusResponse(ResponseStatus.SUCCESS, DoorStatus.CLOSED))
         }
     }
 }
