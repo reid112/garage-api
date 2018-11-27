@@ -18,8 +18,21 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
+        //TODO: Do something with this route
         get("/") {
             call.respond(Response(ResponseStatus.SUCCESS))
+        }
+
+        get("/api/door/status") {
+
+        }
+
+        post("/api/door/open") {
+
+        }
+
+        post("/api/door/close") {
+
         }
     }
 }
