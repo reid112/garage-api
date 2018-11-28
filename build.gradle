@@ -36,5 +36,7 @@ dependencies {
     compile "io.ktor:ktor-gson:$ktor_version"
     compile "io.ktor:ktor-client-core:$ktor_version"
     compile "io.ktor:ktor-client-core-jvm:$ktor_version"
+    compile "io.ktor:ktor-html-builder:$ktor_version"
+    compile "io.ktor:ktor-freemarker:$ktor_version"
     testCompile "io.ktor:ktor-server-tests:$ktor_version"
 }
